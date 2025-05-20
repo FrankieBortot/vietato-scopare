@@ -5,9 +5,10 @@ function App() {
 
   return (
     <>
-     <h1>Something's coming...</h1>
      <img src={vietatoScopare} className="logo vietatoScopare" alt="Vietato Scopare logo" />
+     <h1>Something's coming...</h1>
      <iframe
+        className='video'
         src='https://www.youtube.com/embed/kh29SYeammw'
         frameborder='0'
         allow='autoplay; encrypted-media'
