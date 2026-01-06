@@ -6,7 +6,7 @@ function App() {
   return (
     <>
      <img src={vietatoScopare} className="logo vietatoScopare" alt="Vietato Scopare logo" />
-     <h1>Something's coming...</h1>
+     <h1>Something's coming for real</h1>
      <iframe
         className='video'
         src='https://www.youtube.com/embed/kh29SYeammw'
