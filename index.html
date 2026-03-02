@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vietato Scopare - Profili</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Fredericka+the+Great&family=Onest:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="./assets/logo-vietato-scopare.svg"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="profile-shell">
+        <div class="profile-shell__header">
+          <img
+            class="brand-logo"
+            src="./assets/logo-vietato-scopare.svg"
+            alt="Vietato Scopare"
+            width="519"
+            height="277"
+            loading="eager"
+            fetchpriority="high"
+            decoding="sync"
+          />
+          <p class="quote">
+            Cercare e saper riconoscere chi e cosa,
+            <br />
+            in mezzo all'inferno, non è inferno,
+            <br />
+            e farlo durare, e dargli spazio.
+          </p>
+        </div>
+
+        <section id="profiles-stack" class="profiles-stack" aria-label="Bacheca profili curati"></section>
+      </section>
+    </main>
+
+    <script src="./profiles-data.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
