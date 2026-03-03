@@ -56,7 +56,7 @@ body {
 .quote {
   margin: 0;
   font-family: "DM Serif Display", serif;
-  font-size: clamp(30px, 2.1vw, 38px);
+  font-size: 38px;
   line-height: 1.34;
   letter-spacing: 0.01em;
 }
@@ -99,6 +99,8 @@ body {
   --jitter-x: 0px;
   --jitter-y: 0px;
   --jitter-rot: 0deg;
+  transform-origin: center center;
+  transition: transform 220ms ease, box-shadow 220ms ease;
 }
 
 .polaroid img {
@@ -140,13 +142,27 @@ body {
   z-index: 3;
 }
 
+@media (hover: hover) and (pointer: fine) {
+  .profile-photos .polaroid:hover {
+    transform: rotate(0deg) scale(1.15);
+    z-index: 30;
+    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24);
+  }
+}
+
 .profile-content {
   grid-column: 7 / span 6;
   padding-top: 44px;
   max-width: none;
 }
 
+.profile-body {
+  width: 100%;
+}
+
 .profile-content__head {
+  position: relative;
+  padding-bottom: 38px;
   margin-bottom: 24px;
 }
 
@@ -154,22 +170,29 @@ body {
   margin: 0 0 12px;
   color: var(--ink);
   font-family: "Fredericka the Great", serif;
-  font-size: clamp(66px, 5vw, 86px);
+  font-size: 86px;
   line-height: 0.9;
   font-weight: 400;
 }
 
 .profile-meta {
   margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -112%) rotate(-5deg);
+  z-index: 2;
   display: inline-flex;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 10px;
-  background: #ececec;
-  border: 2px solid #d0d0d0;
-  border-radius: 999px;
-  box-shadow: 0 2px 8px -6px rgba(0, 0, 0, 0.45);
-  color: #4c4c4c;
-  font-size: clamp(18px, 1.35vw, 30px);
+  border-radius: 99px;
+  border: 2px solid #FFF;
+  background: #000;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12), 0 5px 19px -2px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  white-space: nowrap;
+  font-size: 30px;
   line-height: 1;
   padding: 10px 22px;
 }
@@ -265,7 +288,7 @@ body {
 
 @media (max-width: 1220px) {
   .quote {
-    font-size: clamp(24px, 3vw, 36px);
+    font-size: 32px;
   }
 
   .profiles-stack {
@@ -277,11 +300,11 @@ body {
   }
 
   .profile-content__head h2 {
-    font-size: clamp(54px, 4.4vw, 76px);
+    font-size: 72px;
   }
 
   .profile-meta {
-    font-size: clamp(16px, 1.7vw, 24px);
+    font-size: 22px;
   }
 
   .btn {
@@ -303,8 +326,12 @@ body {
 }
 
 @media (max-width: 720px) {
+  :root {
+    --mobile-page-pad: 24px;
+  }
+
   .page {
-    padding: 28px 16px 84px;
+    padding: 28px var(--mobile-page-pad) 84px;
   }
 
   .profiles-stack {
@@ -319,26 +346,28 @@ body {
   .profile-photos {
     grid-column: auto;
     height: auto;
-    width: 100dvw;
+    width: auto;
     max-width: none;
-    margin-left: calc(50% - 50dvw);
-    margin-right: calc(50% - 50dvw);
-    --mobile-card-size: 340px;
+    margin-left: calc(var(--mobile-page-pad) * -1);
+    margin-right: calc(var(--mobile-page-pad) * -1);
+    --mobile-card-size: min(340px, calc(100vw - (2 * var(--mobile-page-pad))));
     --mobile-overlap: 68px;
-    --mobile-side-pad: max(0px, calc((100dvw - var(--mobile-card-size)) / 2));
+    --mobile-side-pad: max(0px, calc((100vw - var(--mobile-card-size)) / 2));
+    --mobile-bleed-y: 18px;
     display: flex;
     align-items: start;
     gap: 0;
     overflow-x: auto;
-    overflow-y: visible;
-    overflow-clip-margin: 28px;
-    padding-top: 0;
-    padding-bottom: 0;
+    overflow-y: hidden;
+    margin-top: calc(var(--mobile-bleed-y) * -1);
+    margin-bottom: calc(var(--mobile-bleed-y) * -1);
+    padding-top: var(--mobile-bleed-y);
+    padding-bottom: var(--mobile-bleed-y);
     padding-left: calc(var(--mobile-side-pad) + env(safe-area-inset-left));
-    padding-right: calc(var(--mobile-side-pad) + env(safe-area-inset-right) + 8px);
+    padding-right: calc(var(--mobile-side-pad) + env(safe-area-inset-right));
     scroll-snap-type: x mandatory;
     scroll-padding-inline-start: calc(var(--mobile-side-pad) + env(safe-area-inset-left));
-    scroll-padding-inline-end: calc(var(--mobile-side-pad) + env(safe-area-inset-right) + 8px);
+    scroll-padding-inline-end: calc(var(--mobile-side-pad) + env(safe-area-inset-right));
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
@@ -374,6 +403,30 @@ body {
     grid-column: auto;
     max-width: 100%;
     padding-top: 0;
+    text-align: left;
+  }
+
+  .profile-body {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .profile-content__head {
+    display: grid;
+    justify-items: center;
+  }
+
+  .profile-content__head h2 {
+    text-align: center;
+    font-size: 72px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .profile-content__head .profile-meta {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .profile-question::before {

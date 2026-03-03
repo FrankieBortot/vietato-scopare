@@ -61,6 +61,8 @@ function createProfileCard(profile) {
 
   const head = document.createElement("header");
   head.className = "profile-content__head";
+  const body = document.createElement("div");
+  body.className = "profile-body";
 
   const title = document.createElement("h2");
   title.textContent = profile.name;
@@ -107,7 +109,8 @@ function createProfileCard(profile) {
   replyButton.textContent = `Rispondi a ${profile.name.toLowerCase()}`;
 
   questionSection.append(questionLabel, questionText, replyButton);
-  content.append(head, bio, highlights, looking, questionSection);
+  body.append(bio, highlights, looking, questionSection);
+  content.append(head, body);
 
   card.append(photos, content);
   return card;
@@ -142,6 +145,20 @@ function updateActivePolaroid(collage) {
   polaroids.forEach((polaroid) => {
     polaroid.classList.toggle("is-active", polaroid === active);
   });
+
+  return active;
+}
+
+function centerPolaroid(collage, polaroid) {
+  if (!polaroid) {
+    return;
+  }
+
+  const target =
+    polaroid.offsetLeft - (collage.clientWidth - polaroid.offsetWidth) / 2;
+  const maxScroll = collage.scrollWidth - collage.clientWidth;
+  const nextScrollLeft = Math.max(0, Math.min(target, Math.max(0, maxScroll)));
+  collage.scrollLeft = nextScrollLeft;
 }
 
 function initMobileCollageBehavior() {
@@ -166,11 +183,17 @@ function initMobileCollageBehavior() {
       { passive: true }
     );
 
-    requestAnimationFrame(() => updateActivePolaroid(collage));
+    requestAnimationFrame(() => {
+      const active = updateActivePolaroid(collage);
+      centerPolaroid(collage, active);
+    });
   });
 
   window.addEventListener("resize", () => {
-    collages.forEach((collage) => updateActivePolaroid(collage));
+    collages.forEach((collage) => {
+      const active = updateActivePolaroid(collage);
+      centerPolaroid(collage, active);
+    });
   });
 }
 
