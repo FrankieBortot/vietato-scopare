@@ -196,3 +196,6 @@ Relazioni:
 - `D-006`: Tutti i testi profilo a `16px` (eccetto header profilo). Motivazione: coerenza tipografica e riduzione rumore visivo.
 - `D-007`: Logo locale da `/assets` con preload e dimensioni intrinseche dichiarate. Motivazione: riduzione layout shift e controllo asset.
 - `D-008`: Polaroid mobile con dimensione uniforme (`340px`). Motivazione: semplificazione percettiva e migliori performance rispetto a scaling dinamico attiva/non attiva.
+
+
+
