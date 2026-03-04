@@ -77,11 +77,23 @@ function createProfileCard(profile) {
   bio.className = "profile-bio";
   bio.textContent = profile.bio;
 
-  const highlights = document.createElement("ul");
-  highlights.className = "profile-highlights";
+  const highlights = document.createDocumentFragment();
   profile.highlights.forEach((highlight) => {
-    const item = document.createElement("li");
-    item.textContent = highlight;
+    const item = document.createElement("p");
+    item.className = "profile-highlight";
+
+    const icon = document.createElement("span");
+    icon.className = "highlight-icon";
+    icon.setAttribute("aria-hidden", "true");
+
+    const iconImage = document.createElement("img");
+    iconImage.src = "./assets/peach.svg";
+    iconImage.alt = "";
+    iconImage.decoding = "async";
+    iconImage.loading = "lazy";
+
+    icon.appendChild(iconImage);
+    item.append(icon, document.createTextNode(highlight));
     highlights.appendChild(item);
   });
 
