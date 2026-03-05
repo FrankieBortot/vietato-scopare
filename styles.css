@@ -224,7 +224,6 @@ body {
   width: 32px;
   height: 32px;
   margin: -8px 4px 0 -8px;
-  pointer-events: none;
 }
 
 .highlight-icon img {

@@ -70,7 +70,7 @@ function createProfileCard(profile) {
 
   const meta = document.createElement("p");
   meta.className = "profile-meta";
-  meta.textContent = `🍓 ${profile.age} anni · ${profile.city}`;
+  meta.textContent = `${profile.age} anni · ${profile.city}`;
 
   head.append(title, meta);
 
