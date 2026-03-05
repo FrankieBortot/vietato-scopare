@@ -1,5 +1,6 @@
 
 const curatedProfiles = Array.isArray(window.curatedProfiles) ? window.curatedProfiles : [];
+const defaultTidalTrackId = "192088477";
 
 const photoClasses = [
   "polaroid polaroid--main",
@@ -97,12 +98,23 @@ function createProfileCard(profile) {
     highlights.appendChild(item);
   });
 
-  const looking = document.createElement("div");
-  looking.className = "profile-looking";
+  const tidalTrackId = profile.tidalTrackId || defaultTidalTrackId;
+  const tidalPlayer = document.createElement("section");
+  tidalPlayer.className = "profile-tidal";
 
-  const lookingText = document.createElement("p");
-  lookingText.innerHTML = profile.lookingFor.map((line) => `🗝 ${line}`).join("<br>");
-  looking.appendChild(lookingText);
+  const tidalFrame = document.createElement("iframe");
+  tidalFrame.src = `https://embed.tidal.com/tracks/${encodeURIComponent(tidalTrackId)}`;
+  tidalFrame.width = "500";
+  tidalFrame.height = "120";
+  tidalFrame.allow =
+    "encrypted-media; fullscreen; clipboard-write https://embed.tidal.com; web-share";
+  tidalFrame.sandbox =
+    "allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox";
+  tidalFrame.style.colorScheme = "light dark";
+  tidalFrame.title = "TIDAL Embed Player";
+  tidalFrame.loading = "lazy";
+
+  tidalPlayer.appendChild(tidalFrame);
 
   const questionSection = document.createElement("section");
   questionSection.className = "profile-question";
@@ -121,7 +133,7 @@ function createProfileCard(profile) {
   replyButton.textContent = `Rispondi a ${profile.name.toLowerCase()}`;
 
   questionSection.append(questionLabel, questionText, replyButton);
-  body.append(bio, highlights, looking, questionSection);
+  body.append(bio, highlights, tidalPlayer, questionSection);
   content.append(head, body);
 
   card.append(photos, content);

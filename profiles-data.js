@@ -12,6 +12,7 @@ window.curatedProfiles = [
     lookingFor: ["Amicizia con 🍆, 🍑", "Relazione seria con 🍆"],
     question:
       "Qual e una situazione in cui ti sei accorto di adattarti troppo, e cosa hai fatto dopo?",
+    tidalTrackId: "192088477",
     photos: [
       "https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=900&q=80",
@@ -31,6 +32,7 @@ window.curatedProfiles = [
     ],
     lookingFor: ["Relazione seria con 🍑", "Connessioni autentiche con 🍑, 🍆"],
     question: "Cosa fai quando ti accorgi che stai performando invece di esserci?",
+    tidalTrackId: "192088477",
     photos: [
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80",
@@ -50,6 +52,7 @@ window.curatedProfiles = [
     ],
     lookingFor: ["Relazione seria con 🍆", "Amicizia con 🍑"],
     question: "Quale conflitto hai imparato a gestire meglio negli ultimi anni?",
+    tidalTrackId: "192088477",
     photos: [
       "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=900&q=80",
@@ -69,6 +72,7 @@ window.curatedProfiles = [
     ],
     lookingFor: ["Relazione seria con 🍑", "Amicizia con 🍆"],
     question: "Quando ti senti veramente visto da qualcuno?",
+    tidalTrackId: "192088477",
     photos: [
       "https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=900&q=80",
@@ -88,6 +92,7 @@ window.curatedProfiles = [
     ],
     lookingFor: ["Connessioni autentiche con 🍆, 🍑", "Relazione seria con 🍆"],
     question: "Che tipo di attenzione ti fa sentire a casa?",
+    tidalTrackId: "192088477",
     photos: [
       "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=900&q=80",
@@ -107,6 +112,7 @@ window.curatedProfiles = [
     ],
     lookingFor: ["Relazione seria con 🍑", "Amicizia con 🍆, 🍑"],
     question: "Quale confine personale hai imparato a proteggere meglio?",
+    tidalTrackId: "192088477",
     photos: [
       "https://images.unsplash.com/photo-1504257432389-52343af06ae3?auto=format&fit=crop&w=1200&q=80",
       "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80",
